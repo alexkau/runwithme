@@ -17,6 +17,7 @@
 		9F22315019E08BA400AF2385 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F22314F19E08BA400AF2385 /* Images.xcassets */; };
 		9F22315319E08BA400AF2385 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F22315119E08BA400AF2385 /* LaunchScreen.xib */; };
 		9F22315F19E08BA400AF2385 /* Run_With_MeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F22315E19E08BA400AF2385 /* Run_With_MeTests.m */; };
+		9F8ECBE619E098560072F445 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F8ECBE519E098560072F445 /* FacebookSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		9F22315819E08BA400AF2385 /* Run With MeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Run With MeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F22315D19E08BA400AF2385 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F22315E19E08BA400AF2385 /* Run_With_MeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Run_With_MeTests.m; sourceTree = "<group>"; };
+		9F8ECBE519E098560072F445 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F8ECBE619E098560072F445 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +78,7 @@
 				9F22313E19E08BA400AF2385 /* Run With Me */,
 				9F22315B19E08BA400AF2385 /* Run With MeTests */,
 				9F22313D19E08BA400AF2385 /* Products */,
+				9F8ECBE519E098560072F445 /* FacebookSDK.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -361,7 +365,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Run With Me/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -371,7 +380,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Run With Me/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
