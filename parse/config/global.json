@@ -1,0 +1,11 @@
+{
+    "applications": {
+        "Run With Me": {
+            "applicationId": "27OKfEfexHMr1l0IQn2XLsVzNfdZbUi6Rhobo1zv", 
+            "masterKey": "EKvMMZBtyc7ppsz5UWgHbRjnGZFyoRQvEl9tDysm"
+        }, 
+        "_default": {
+            "link": "Run With Me"
+        }
+    }
+}
