@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>57157D52-2A32-446D-B344-3D9B68A236A6</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Run With Me</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>DA1217223F529709BC56E04E4C79D97202D408A9</key>
+		<string>https://github.com/alexkau/runwithme-app.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Run With Me/Run With Me.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>DA1217223F529709BC56E04E4C79D97202D408A9</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/alexkau/runwithme-app.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>DA1217223F529709BC56E04E4C79D97202D408A9</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DA1217223F529709BC56E04E4C79D97202D408A9</string>
+			<key>IDESourceControlWCCName</key>
+			<string>runwithme-app</string>
+		</dict>
+	</array>
+</dict>
+</plist>
