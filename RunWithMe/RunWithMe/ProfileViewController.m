@@ -18,7 +18,10 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-	self.profilePicView.image = [UIImage imageWithData:self.profilePicData];
+	NSString *strurl = [[NSString alloc] initWithFormat:@"https://graph.facebook.com/%@/picture?width=9999", self.fbusername];
+	NSURL *url=[NSURL URLWithString:strurl];
+	NSData *imageData = [NSData dataWithContentsOfURL:url];
+	self.profilePicView.image = [UIImage imageWithData:imageData];
 	self.profilePicView.layer.cornerRadius = self.profilePicView.frame.size.width / 2;
 	self.profilePicView.clipsToBounds = YES;
 	self.nameLabel.text = self.name;

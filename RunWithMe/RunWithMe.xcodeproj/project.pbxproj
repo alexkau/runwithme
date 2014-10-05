@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F9C989C19E16CD700257E49 /* run with me logo-p1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F9C989B19E16CD700257E49 /* run with me logo-p1.png */; };
 		9FC5EC2819E0A6F0007E6039 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC5EC2719E0A6F0007E6039 /* main.m */; };
 		9FC5EC5619E0A762007E6039 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC5EC4D19E0A762007E6039 /* AppDelegate.m */; };
 		9FC5EC5819E0A762007E6039 /* MyLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC5EC5119E0A762007E6039 /* MyLoginViewController.m */; };
@@ -26,7 +27,6 @@
 		9FC5EC7419E0A899007E6039 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FC5EC7319E0A899007E6039 /* Security.framework */; };
 		9FC5EC7619E0A89D007E6039 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FC5EC7519E0A89D007E6039 /* StoreKit.framework */; };
 		9FC5EC7819E0A8A3007E6039 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FC5EC7719E0A8A3007E6039 /* SystemConfiguration.framework */; };
-		9FC5EC7D19E0EAB0007E6039 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC5EC7C19E0EAB0007E6039 /* ViewController.m */; };
 		9FC5EC8019E0EAC2007E6039 /* UITouchTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC5EC7F19E0EAC2007E6039 /* UITouchTableView.m */; };
 		9FC5EC8219E0EDA8007E6039 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FC5EC8119E0EDA8007E6039 /* Firebase.framework */; };
 		9FC5EC8419E0EDF1007E6039 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FC5EC8319E0EDF1007E6039 /* libicucore.dylib */; };
@@ -39,6 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9F9C989B19E16CD700257E49 /* run with me logo-p1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "run with me logo-p1.png"; sourceTree = "<group>"; };
 		9FC5EC2219E0A6F0007E6039 /* RunWithMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunWithMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FC5EC2719E0A6F0007E6039 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9FC5EC4019E0A6F0007E6039 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -66,8 +67,6 @@
 		9FC5EC7319E0A899007E6039 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		9FC5EC7519E0A89D007E6039 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		9FC5EC7719E0A8A3007E6039 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		9FC5EC7B19E0EAB0007E6039 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		9FC5EC7C19E0EAB0007E6039 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		9FC5EC7E19E0EAC2007E6039 /* UITouchTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITouchTableView.h; sourceTree = "<group>"; };
 		9FC5EC7F19E0EAC2007E6039 /* UITouchTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITouchTableView.m; sourceTree = "<group>"; };
 		9FC5EC8119E0EDA8007E6039 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
@@ -139,8 +138,6 @@
 				9FE7DCCF19E12D82009639B7 /* ResultsCell.m */,
 				9FC5EC5219E0A762007E6039 /* ProfileViewController.h */,
 				9FC5EC5319E0A762007E6039 /* ProfileViewController.m */,
-				9FC5EC7B19E0EAB0007E6039 /* ViewController.h */,
-				9FC5EC7C19E0EAB0007E6039 /* ViewController.m */,
 				9FC5EC7E19E0EAC2007E6039 /* UITouchTableView.h */,
 				9FC5EC7F19E0EAC2007E6039 /* UITouchTableView.m */,
 				9FC5EC5B19E0A78B007E6039 /* LaunchScreen.xib */,
@@ -201,6 +198,7 @@
 		9FC5EC8F19E0F90A007E6039 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				9F9C989B19E16CD700257E49 /* run with me logo-p1.png */,
 				9FC5EC8719E0F8FE007E6039 /* mockup1w.png */,
 				9FC5EC8819E0F8FE007E6039 /* mockup2.png */,
 				9FC5EC8919E0F8FE007E6039 /* mockup3.png */,
@@ -267,6 +265,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F9C989C19E16CD700257E49 /* run with me logo-p1.png in Resources */,
 				9FC5EC8D19E0F8FE007E6039 /* mockup3.png in Resources */,
 				9FC5EC5D19E0A78B007E6039 /* LaunchScreen.xib in Resources */,
 				9FC5EC5E19E0A78B007E6039 /* Main.storyboard in Resources */,
@@ -283,7 +282,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9FC5EC7D19E0EAB0007E6039 /* ViewController.m in Sources */,
 				9FC5EC5819E0A762007E6039 /* MyLoginViewController.m in Sources */,
 				9FE7DCD019E12D82009639B7 /* ResultsCell.m in Sources */,
 				9FC5EC5619E0A762007E6039 /* AppDelegate.m in Sources */,

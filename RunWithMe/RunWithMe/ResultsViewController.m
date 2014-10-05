@@ -126,9 +126,9 @@
 	if ([[segue identifier] isEqualToString:@"showProfile"]) {
 		ProfileViewController *profileViewController = [segue destinationViewController];
 		ResultsCell *cell = (ResultsCell *)[self.tableView cellForRowAtIndexPath:[self.tableView indexPathForSelectedRow]];
-		profileViewController.profilePicData = UIImagePNGRepresentation(cell.image.image);
 		profileViewController.name = cell.nameLabel.text;
 		profileViewController.distance = cell.distanceLabel.text;
+		profileViewController.fbusername = cell.fbusername;
 		profileViewController.avgPace = cell.avgPace;
 		profileViewController.avgDistance = cell.avgDistance;
 		UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
@@ -165,9 +165,10 @@
 
 	cell.nameLabel.text = dict[@"realName"];
 	cell.distanceLabel.text = [NSString stringWithFormat:@"%.1f mi.", [dict[@"distance"] floatValue]];
-	NSString *strurl = [[NSString alloc] initWithFormat:@"https://graph.facebook.com/%@/picture", [_objects[indexPath.row] objectForKey:@"fbusername"]];
 	cell.avgDistance = [NSString stringWithFormat:@"%.1f miles", [dict[@"averagedistance"] floatValue]];
 	cell.avgPace = [NSString stringWithFormat:@"%.1f minutes/mile", [dict[@"averagepace"] floatValue]];
+	cell.fbusername = dict[@"fbusername"];
+	NSString *strurl = [[NSString alloc] initWithFormat:@"https://graph.facebook.com/%@/picture", [_objects[indexPath.row] objectForKey:@"fbusername"]];
 	NSURL *url=[NSURL URLWithString:strurl];
 	NSData *imageData = [NSData dataWithContentsOfURL:url];
 	UIImage *profilePic = [UIImage imageWithData:imageData];

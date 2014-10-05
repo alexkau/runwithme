@@ -15,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
 @property (nonatomic) NSString *avgPace;
 @property (nonatomic) NSString *avgDistance;
+@property (nonatomic) NSString *fbusername;
 
 @end

@@ -10,7 +10,7 @@
 
 @interface ProfileViewController : UIViewController
 
-@property (nonatomic, copy) NSData *profilePicData;
+@property (nonatomic, copy) NSString *fbusername;
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *distance;
 @property (nonatomic, copy) NSString *avgPace;
