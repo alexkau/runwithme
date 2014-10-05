@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9F9C989C19E16CD700257E49 /* run with me logo-p1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F9C989B19E16CD700257E49 /* run with me logo-p1.png */; };
+		9F9C98A219E173B000257E49 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F9C98A119E173B000257E49 /* ChatViewController.m */; };
 		9FC5EC2819E0A6F0007E6039 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC5EC2719E0A6F0007E6039 /* main.m */; };
 		9FC5EC5619E0A762007E6039 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC5EC4D19E0A762007E6039 /* AppDelegate.m */; };
 		9FC5EC5819E0A762007E6039 /* MyLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC5EC5119E0A762007E6039 /* MyLoginViewController.m */; };
@@ -40,6 +41,8 @@
 
 /* Begin PBXFileReference section */
 		9F9C989B19E16CD700257E49 /* run with me logo-p1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "run with me logo-p1.png"; sourceTree = "<group>"; };
+		9F9C98A019E173B000257E49 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		9F9C98A119E173B000257E49 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		9FC5EC2219E0A6F0007E6039 /* RunWithMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunWithMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FC5EC2719E0A6F0007E6039 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9FC5EC4019E0A6F0007E6039 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -140,6 +143,8 @@
 				9FC5EC5319E0A762007E6039 /* ProfileViewController.m */,
 				9FC5EC7E19E0EAC2007E6039 /* UITouchTableView.h */,
 				9FC5EC7F19E0EAC2007E6039 /* UITouchTableView.m */,
+				9F9C98A019E173B000257E49 /* ChatViewController.h */,
+				9F9C98A119E173B000257E49 /* ChatViewController.m */,
 				9FC5EC5B19E0A78B007E6039 /* LaunchScreen.xib */,
 				9FC5EC5C19E0A78B007E6039 /* Main.storyboard */,
 				9FC5EC2519E0A6F0007E6039 /* Supporting Files */,
@@ -288,6 +293,7 @@
 				9FC5EC2819E0A6F0007E6039 /* main.m in Sources */,
 				9FC5EC8019E0EAC2007E6039 /* UITouchTableView.m in Sources */,
 				9FC5EC5A19E0A762007E6039 /* ResultsViewController.m in Sources */,
+				9F9C98A219E173B000257E49 /* ChatViewController.m in Sources */,
 				9FC5EC5919E0A762007E6039 /* ProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

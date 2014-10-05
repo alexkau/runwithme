@@ -164,12 +164,25 @@
                             <constraint firstAttribute="trailing" secondItem="klJ-9I-4rL" secondAttribute="trailing" id="vL1-jH-6w8"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Runner Profile" id="cra-N8-TIN"/>
+                    <navigationItem key="navigationItem" title="Runner Profile" id="cra-N8-TIN">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="J2n-L0-EGX">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gVl-CH-Z8R">
+                                <rect key="frame" x="-23" y="-15" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Chat">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <connections>
+                                <segue destination="q9s-UH-81O" kind="push" id="sZy-yo-oFy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="detailLabel" destination="ICN-us-7B7" id="jRA-Rx-PlO"/>
                         <outlet property="nameLabel" destination="QcJ-mB-ubS" id="uIk-sU-Ogv"/>
                         <outlet property="profilePicView" destination="guV-vz-B7q" id="Qjx-x4-4r3"/>
-                        <segue destination="q9s-UH-81O" kind="push" id="kCF-HL-pgl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lrm-kH-fPn" sceneMemberID="firstResponder"/>
@@ -203,7 +216,7 @@
         <!--Chat-->
         <scene sceneID="0QZ-GL-Itd">
             <objects>
-                <viewController id="q9s-UH-81O" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="q9s-UH-81O" customClass="ChatViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2Vx-BJ-jLN"/>
                         <viewControllerLayoutGuide type="bottom" id="D3N-Jo-LcQ"/>
