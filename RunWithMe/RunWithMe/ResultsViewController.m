@@ -45,6 +45,7 @@
 				NSString *facebookUsername = [result objectForKey:@"id"];
 				self.myUsername = facebookUsername;
 				NSString *realName = [result objectForKey:@"name"];
+				[[NSUserDefaults standardUserDefaults] setValue:[result objectForKey:@"first_name"] forKey:@"first_name"];
 				[[PFUser currentUser] setObject:facebookUsername forKey:@"fbusername"];
 				[[PFUser currentUser] setObject:realName forKey:@"realName"];
 				[[PFUser currentUser] saveEventually];
@@ -109,8 +110,8 @@
 	CLLocationCoordinate2D coordinate = [location coordinate];
 	PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLatitude:coordinate.latitude
 												  longitude:coordinate.longitude];
-	[[PFUser currentUser] setObject:geoPoint forKey:@"location"];
-	[[PFUser currentUser] saveEventually];
+	//[[PFUser currentUser] setObject:geoPoint forKey:@"location"];
+	//[[PFUser currentUser] saveEventually];
 	[[self locationManager] stopUpdatingLocation];
 }
 

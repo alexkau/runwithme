@@ -37,7 +37,7 @@
 	self.firebase = [[Firebase alloc] initWithUrl:kFirechatNS];
 	
 	// Pick a random number between 1-1000 for our username.
-	self.name = [NSString stringWithFormat:@"Guest%d", arc4random() % 1000];
+	self.name = [[NSUserDefaults standardUserDefaults] objectForKey:@"first_name"];
 	[nameField setTitle:self.name forState:UIControlStateNormal];
 	
 	// Decide whether or not to reverse the messages
