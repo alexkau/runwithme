@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		9F9C989C19E16CD700257E49 /* run with me logo-p1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F9C989B19E16CD700257E49 /* run with me logo-p1.png */; };
 		9F9C98A219E173B000257E49 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F9C98A119E173B000257E49 /* ChatViewController.m */; };
+		6053178F19E153A1008F04F1 /* OAuthiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6053178E19E153A1008F04F1 /* OAuthiOS.framework */; };
+		6053179219E15481008F04F1 /* LoginWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6053179119E15481008F04F1 /* LoginWebViewController.m */; };
+		6053179819E154B9008F04F1 /* OAuth1Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 6053179519E154B9008F04F1 /* OAuth1Controller.m */; };
+		6053179919E154B9008F04F1 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 6053179719E154B9008F04F1 /* NSString+URLEncoding.m */; };
+		605317A119E154D0008F04F1 /* Base64Transcoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 6053179B19E154D0008F04F1 /* Base64Transcoder.c */; };
+		605317A219E154D0008F04F1 /* hmac.c in Sources */ = {isa = PBXBuildFile; fileRef = 6053179D19E154D0008F04F1 /* hmac.c */; };
+		605317A319E154D0008F04F1 /* sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = 6053179F19E154D0008F04F1 /* sha1.c */; };
 		9FC5EC2819E0A6F0007E6039 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC5EC2719E0A6F0007E6039 /* main.m */; };
 		9FC5EC5619E0A762007E6039 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC5EC4D19E0A762007E6039 /* AppDelegate.m */; };
 		9FC5EC5819E0A762007E6039 /* MyLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC5EC5119E0A762007E6039 /* MyLoginViewController.m */; };
@@ -43,6 +50,19 @@
 		9F9C989B19E16CD700257E49 /* run with me logo-p1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "run with me logo-p1.png"; sourceTree = "<group>"; };
 		9F9C98A019E173B000257E49 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		9F9C98A119E173B000257E49 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		6053178E19E153A1008F04F1 /* OAuthiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OAuthiOS.framework; sourceTree = "<group>"; };
+		6053179019E15481008F04F1 /* LoginWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginWebViewController.h; sourceTree = "<group>"; };
+		6053179119E15481008F04F1 /* LoginWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginWebViewController.m; sourceTree = "<group>"; };
+		6053179419E154B9008F04F1 /* OAuth1Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuth1Controller.h; sourceTree = "<group>"; };
+		6053179519E154B9008F04F1 /* OAuth1Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuth1Controller.m; sourceTree = "<group>"; };
+		6053179619E154B9008F04F1 /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
+		6053179719E154B9008F04F1 /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncoding.m"; sourceTree = "<group>"; };
+		6053179B19E154D0008F04F1 /* Base64Transcoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Base64Transcoder.c; sourceTree = "<group>"; };
+		6053179C19E154D0008F04F1 /* Base64Transcoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Transcoder.h; sourceTree = "<group>"; };
+		6053179D19E154D0008F04F1 /* hmac.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hmac.c; sourceTree = "<group>"; };
+		6053179E19E154D0008F04F1 /* hmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hmac.h; sourceTree = "<group>"; };
+		6053179F19E154D0008F04F1 /* sha1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sha1.c; sourceTree = "<group>"; };
+		605317A019E154D0008F04F1 /* sha1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha1.h; sourceTree = "<group>"; };
 		9FC5EC2219E0A6F0007E6039 /* RunWithMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunWithMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FC5EC2719E0A6F0007E6039 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9FC5EC4019E0A6F0007E6039 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -88,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6053178F19E153A1008F04F1 /* OAuthiOS.framework in Frameworks */,
 				9FC5EC6819E0A875007E6039 /* CFNetwork.framework in Frameworks */,
 				9FC5EC8619E0EDF9007E6039 /* libc++.dylib in Frameworks */,
 				9FC5EC8419E0EDF1007E6039 /* libicucore.dylib in Frameworks */,
@@ -109,6 +130,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6053179319E154A9008F04F1 /* OAuth1 */ = {
+			isa = PBXGroup;
+			children = (
+				6053179A19E154C5008F04F1 /* Crypto */,
+				6053179419E154B9008F04F1 /* OAuth1Controller.h */,
+				6053179519E154B9008F04F1 /* OAuth1Controller.m */,
+				6053179619E154B9008F04F1 /* NSString+URLEncoding.h */,
+				6053179719E154B9008F04F1 /* NSString+URLEncoding.m */,
+			);
+			name = OAuth1;
+			sourceTree = "<group>";
+		};
+		6053179A19E154C5008F04F1 /* Crypto */ = {
+			isa = PBXGroup;
+			children = (
+				6053179B19E154D0008F04F1 /* Base64Transcoder.c */,
+				6053179C19E154D0008F04F1 /* Base64Transcoder.h */,
+				6053179D19E154D0008F04F1 /* hmac.c */,
+				6053179E19E154D0008F04F1 /* hmac.h */,
+				6053179F19E154D0008F04F1 /* sha1.c */,
+				605317A019E154D0008F04F1 /* sha1.h */,
+			);
+			name = Crypto;
+			sourceTree = "<group>";
+		};
 		9FC5EC1919E0A6F0007E6039 = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +191,9 @@
 				9FC5EC7F19E0EAC2007E6039 /* UITouchTableView.m */,
 				9F9C98A019E173B000257E49 /* ChatViewController.h */,
 				9F9C98A119E173B000257E49 /* ChatViewController.m */,
+				6053179019E15481008F04F1 /* LoginWebViewController.h */,
+				6053179119E15481008F04F1 /* LoginWebViewController.m */,
+				6053179319E154A9008F04F1 /* OAuth1 */,
 				9FC5EC5B19E0A78B007E6039 /* LaunchScreen.xib */,
 				9FC5EC5C19E0A78B007E6039 /* Main.storyboard */,
 				9FC5EC2519E0A6F0007E6039 /* Supporting Files */,
@@ -181,6 +230,7 @@
 		9FC5EC4B19E0A700007E6039 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6053178E19E153A1008F04F1 /* OAuthiOS.framework */,
 				9FC5EC8519E0EDF9007E6039 /* libc++.dylib */,
 				9FC5EC8319E0EDF1007E6039 /* libicucore.dylib */,
 				9FC5EC8119E0EDA8007E6039 /* Firebase.framework */,
@@ -287,6 +337,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				605317A219E154D0008F04F1 /* hmac.c in Sources */,
+				6053179919E154B9008F04F1 /* NSString+URLEncoding.m in Sources */,
+				605317A119E154D0008F04F1 /* Base64Transcoder.c in Sources */,
+				9FC5EC7D19E0EAB0007E6039 /* ViewController.m in Sources */,
+				605317A319E154D0008F04F1 /* sha1.c in Sources */,
 				9FC5EC5819E0A762007E6039 /* MyLoginViewController.m in Sources */,
 				9FE7DCD019E12D82009639B7 /* ResultsCell.m in Sources */,
 				9FC5EC5619E0A762007E6039 /* AppDelegate.m in Sources */,
@@ -294,6 +349,8 @@
 				9FC5EC8019E0EAC2007E6039 /* UITouchTableView.m in Sources */,
 				9FC5EC5A19E0A762007E6039 /* ResultsViewController.m in Sources */,
 				9F9C98A219E173B000257E49 /* ChatViewController.m in Sources */,
+				6053179819E154B9008F04F1 /* OAuth1Controller.m in Sources */,
+				6053179219E15481008F04F1 /* LoginWebViewController.m in Sources */,
 				9FC5EC5919E0A762007E6039 /* ProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

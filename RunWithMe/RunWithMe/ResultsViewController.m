@@ -32,6 +32,7 @@
 	self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:48/255.0f green:130/255.0f blue:163/255.0f alpha:1];
 	self.navigationController.navigationBar.translucent = NO;
 	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    self.fitbitAuthenticated = NO;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -62,6 +63,8 @@
 	} else {
 		[self showLoginView];
 	}
+    
+    [self showFitbitView];
 }
 
 - (void)showLoginView {
@@ -191,6 +194,64 @@
 	} else if (editingStyle == UITableViewCellEditingStyleInsert) {
 	    // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
 	}
+}
+
+#pragma mark - Fitbit integration
+
+- (void)didReceiveOAuthIOResponse:(OAuthIORequest *)request
+{
+    NSDictionary *credentials = [request getCredentials];
+    self.oauthToken = [credentials valueForKey:@"oauth_token"];
+    self.oauthTokenSecret = [credentials valueForKey:@"oauth_token_secret"];
+    [self pushActivityMetric];
+}
+
+- (void)pushActivityMetric
+{
+    NSString *path = @"1/user/-/activities/goals/weekly.json";
+    
+    NSURLRequest *preparedRequest = [OAuth1Controller preparedRequestForPath:path
+                                                                  parameters:nil
+                                                                  HTTPmethod:@"GET"
+                                                                  oauthToken:self.oauthToken
+                                                                 oauthSecret:self.oauthTokenSecret];
+    
+    [NSURLConnection sendAsynchronousRequest:preparedRequest
+                                       queue:NSOperationQueue.mainQueue
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                               dispatch_async(dispatch_get_main_queue(), ^{
+                                   
+                                   NSError *error = nil;
+                                   NSJSONSerialization *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+                                   float averageDistance = [[[json valueForKey:@"goals"] valueForKey:@"distance"] floatValue];
+                                   float averagePace = averageDistance;
+                                   
+                                   NSNumber *avgDistance = [NSNumber numberWithFloat:averageDistance/66.7];
+                                   NSNumber *avgPace = [NSNumber numberWithFloat:averagePace];
+                                   
+                                   NSLog(@"%f", averagePace);
+                                   NSLog(@"%f", averageDistance);
+                                   
+                                   [[PFUser currentUser] setObject:avgPace forKey:@"avgPace"];
+                                   [[PFUser currentUser] setObject:avgDistance forKey:@"avgDistance"];
+                                   [[PFUser currentUser] saveEventually];
+                                   
+                                   if (error) NSLog(@"Error in API request: %@", error.localizedDescription);
+                               });
+                           }];
+}
+
+- (void)showFitbitView
+{
+    if (!self.fitbitAuthenticated)
+    {
+        OAuthIOModal *oauthioModal = [[OAuthIOModal alloc] initWithKey:@"Pd2cIrOq7a02OhCtteV_rgzNuvY" delegate:self];
+        NSMutableDictionary *options = [[NSMutableDictionary alloc] init];
+        [options setObject:@"true" forKey:@"cache"];
+        [oauthioModal showWithProvider:@"fitbit" options:options];
+        
+        self.fitbitAuthenticated = YES;
+    }
 }
 
 @end
