@@ -22,6 +22,8 @@
 	[defaultACL setPublicReadAccess:YES];
 	[PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
 
+	[[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+	
 	return YES;
 }
 

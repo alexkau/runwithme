@@ -10,8 +10,16 @@
 
 @interface ProfileViewController : UIViewController
 
-@property (strong, nonatomic) id ProfileItem;
-@property (weak, nonatomic) IBOutlet UILabel *ProfileDescriptionLabel;
+@property (nonatomic, copy) NSData *profilePicData;
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *distance;
+@property (nonatomic, copy) NSString *avgPace;
+@property (nonatomic, copy) NSString *avgDistance;
+
+@property (weak, nonatomic) IBOutlet UIImageView *profilePicView;
+
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *detailLabel;
 
 @end
 

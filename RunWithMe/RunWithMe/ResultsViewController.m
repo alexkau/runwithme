@@ -9,6 +9,7 @@
 #import "ResultsViewController.h"
 #import "MyLoginViewController.h"
 #import "ResultsCell.h"
+#import "ProfileViewController.h"
 #import <Parse/Parse.h>
 #import <CoreLocation/CoreLocation.h>
 
@@ -42,7 +43,9 @@
 		 ^(FBRequestConnection *connection, id result, NSError *error) {
 			if (!error) {
 				NSString *facebookUsername = [result objectForKey:@"id"];
+				NSString *realName = [result objectForKey:@"name"];
 				[[PFUser currentUser] setObject:facebookUsername forKey:@"fbusername"];
+				[[PFUser currentUser] setObject:realName forKey:@"realName"];
 				[[PFUser currentUser] saveEventually];
 			}
 		}];
@@ -123,8 +126,17 @@
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-	if ([[segue identifier] isEqualToString:@"showDetail"]) {
-	    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+	if ([[segue identifier] isEqualToString:@"showProfile"]) {
+		ProfileViewController *profileViewController = [segue destinationViewController];
+		ResultsCell *cell = (ResultsCell *)[self.tableView cellForRowAtIndexPath:[self.tableView indexPathForSelectedRow]];
+		profileViewController.profilePicData = UIImagePNGRepresentation(cell.image.image);
+		profileViewController.name = cell.nameLabel.text;
+		profileViewController.distance = cell.distanceLabel.text;
+		profileViewController.avgPace = cell.avgPace;
+		profileViewController.avgDistance = cell.avgDistance;
+		UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
+		[[self navigationItem] setBackBarButtonItem:newBackButton];
+		NSLog(@"%@, %@, %@, %@", profileViewController.name, profileViewController.distance, profileViewController.avgPace, profileViewController.avgDistance);
 	}
 }
 
@@ -143,7 +155,7 @@
 	if (_objects == nil)
 		return 0;
 	else {
-		return self.objects.count + 1;
+		return [self.objects count];
 	}
 }
 
@@ -152,17 +164,13 @@
 	if (!cell) {
 		cell = [[ResultsCell alloc] init];
 	}
-	if (indexPath.row == [_objects count]) {
-		NSLog(@"Cat cell");
-		cell.nameLabel.text = @"Cat";
-		return cell;
-	}
 	NSDictionary *dict = _objects[indexPath.row];
 
-	cell.nameLabel.text = dict[@"fbusername"];
+	cell.nameLabel.text = dict[@"realName"];
 	cell.distanceLabel.text = [NSString stringWithFormat:@"%.1f mi.", [dict[@"distance"] floatValue]];
-
 	NSString *strurl = [[NSString alloc] initWithFormat:@"https://graph.facebook.com/%@/picture", [_objects[indexPath.row] objectForKey:@"fbusername"]];
+	cell.avgDistance = [NSString stringWithFormat:@"%.1f miles", [dict[@"averagedistance"] floatValue]];
+	cell.avgPace = [NSString stringWithFormat:@"%.1f minutes/mile", [dict[@"averagepace"] floatValue]];
 	NSURL *url=[NSURL URLWithString:strurl];
 	NSData *imageData = [NSData dataWithContentsOfURL:url];
 	UIImage *profilePic = [UIImage imageWithData:imageData];
