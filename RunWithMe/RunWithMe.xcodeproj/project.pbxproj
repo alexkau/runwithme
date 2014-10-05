@@ -31,6 +31,10 @@
 		9FC5EC8219E0EDA8007E6039 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FC5EC8119E0EDA8007E6039 /* Firebase.framework */; };
 		9FC5EC8419E0EDF1007E6039 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FC5EC8319E0EDF1007E6039 /* libicucore.dylib */; };
 		9FC5EC8619E0EDF9007E6039 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FC5EC8519E0EDF9007E6039 /* libc++.dylib */; };
+		9FC5EC8B19E0F8FE007E6039 /* mockup1w.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FC5EC8719E0F8FE007E6039 /* mockup1w.png */; };
+		9FC5EC8C19E0F8FE007E6039 /* mockup2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FC5EC8819E0F8FE007E6039 /* mockup2.png */; };
+		9FC5EC8D19E0F8FE007E6039 /* mockup3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FC5EC8919E0F8FE007E6039 /* mockup3.png */; };
+		9FC5EC8E19E0F8FE007E6039 /* run with me logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FC5EC8A19E0F8FE007E6039 /* run with me logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +72,10 @@
 		9FC5EC8119E0EDA8007E6039 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
 		9FC5EC8319E0EDF1007E6039 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		9FC5EC8519E0EDF9007E6039 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		9FC5EC8719E0F8FE007E6039 /* mockup1w.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mockup1w.png; sourceTree = "<group>"; };
+		9FC5EC8819E0F8FE007E6039 /* mockup2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mockup2.png; sourceTree = "<group>"; };
+		9FC5EC8919E0F8FE007E6039 /* mockup3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mockup3.png; sourceTree = "<group>"; };
+		9FC5EC8A19E0F8FE007E6039 /* run with me logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "run with me logo.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +110,7 @@
 				9FC5EC2419E0A6F0007E6039 /* RunWithMe */,
 				9FC5EC2319E0A6F0007E6039 /* Products */,
 				9FC5EC3E19E0A6F0007E6039 /* RunWithMeTests */,
+				9FC5EC8F19E0F90A007E6039 /* Images */,
 				9FC5EC4B19E0A700007E6039 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -184,6 +193,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9FC5EC8F19E0F90A007E6039 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				9FC5EC8719E0F8FE007E6039 /* mockup1w.png */,
+				9FC5EC8819E0F8FE007E6039 /* mockup2.png */,
+				9FC5EC8919E0F8FE007E6039 /* mockup3.png */,
+				9FC5EC8A19E0F8FE007E6039 /* run with me logo.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -242,8 +262,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FC5EC8D19E0F8FE007E6039 /* mockup3.png in Resources */,
 				9FC5EC5D19E0A78B007E6039 /* LaunchScreen.xib in Resources */,
 				9FC5EC5E19E0A78B007E6039 /* Main.storyboard in Resources */,
+				9FC5EC8E19E0F8FE007E6039 /* run with me logo.png in Resources */,
+				9FC5EC8B19E0F8FE007E6039 /* mockup1w.png in Resources */,
+				9FC5EC8C19E0F8FE007E6039 /* mockup2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

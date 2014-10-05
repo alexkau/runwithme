@@ -9,6 +9,7 @@
 #import "ResultsViewController.h"
 #import "MyLoginViewController.h"
 #import <Parse/Parse.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface ResultsViewController ()
 
@@ -18,21 +19,28 @@
 
 @implementation ResultsViewController
 
+- (void)viewDidLoad {
+	CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
+	if (status == kCLAuthorizationStatusAuthorized || status == kCLAuthorizationStatusAuthorizedWhenInUse) {
+		[self getLocation];
+	}
+	else if (status == kCLAuthorizationStatusNotDetermined) {
+		[[self locationManager] requestWhenInUseAuthorization];
+	}
+}
+
 - (void)viewDidAppear:(BOOL)animated {
 	[super viewDidAppear:animated];
-
 	if ([PFUser currentUser]) {
-		// Create Facebook Request for user's details
-//		FBRequest *request = [FBRequest requestForMe];
-//		[request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-//			// This is an asynchronous method. When Facebook responds, if there are no errors, we'll update the Welcome label.
-//			if (!error) {
-//				NSString *displayName = result[@"name"];
-//				if (displayName) {
-//					self.welcomeLabel.text =[NSString stringWithFormat:@"Welcome %@!", displayName];
-//				}
-//			}
-//		}];
+		FBRequest *request = [FBRequest requestForMe];
+		[request startWithCompletionHandler:
+		 ^(FBRequestConnection *connection, id result, NSError *error) {
+			if (!error) {
+				NSString *facebookUsername = [result objectForKey:@"id"];
+				[[PFUser currentUser] setObject:facebookUsername forKey:@"fbusername"];
+				[[PFUser currentUser] saveEventually];
+			}
+		}];
 		
 		[PFCloud callFunctionInBackground:@"usersNearMe"
 						   withParameters:@{@"username" : [[PFUser currentUser] username]}
@@ -58,10 +66,41 @@
 	[self presentViewController:myLoginViewController animated:YES completion:nil];
 }
 
-- (void)didReceiveMemoryWarning {
-	[super didReceiveMemoryWarning];
-	// Dispose of any resources that can be recreated.
+- (CLLocationManager *)locationManager {
+	if (_locationManager != nil) {
+		return _locationManager;
+	}
+	_locationManager = [[CLLocationManager alloc] init];
+	[_locationManager setDesiredAccuracy:kCLLocationAccuracyNearestTenMeters];
+	[_locationManager setDelegate:self];
+ 
+	return _locationManager;
 }
+
+- (void)getLocation {
+	if ([CLLocationManager locationServicesEnabled]) {
+		[[self locationManager] startUpdatingLocation];
+	}
+}
+
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+	if (status == kCLAuthorizationStatusAuthorized) {
+		[[self locationManager] startUpdatingLocation];
+	}
+}
+
+- (void)locationManager:(CLLocationManager *)manager
+	didUpdateToLocation:(CLLocation *)newLocation
+		   fromLocation:(CLLocation *)oldLocation {
+	NSLog(@"Location updated");
+	CLLocation *location = _locationManager.location;
+	CLLocationCoordinate2D coordinate = [location coordinate];
+	PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLatitude:coordinate.latitude
+												  longitude:coordinate.longitude];
+	[[PFUser currentUser] setObject:geoPoint forKey:@"location"];
+	[[self locationManager] stopUpdatingLocation];
+}
+
 
 - (void)logInViewController:(PFLogInViewController *)controller didLogInUser:(PFUser *)user {
 	[self dismissViewControllerAnimated:YES completion:nil];

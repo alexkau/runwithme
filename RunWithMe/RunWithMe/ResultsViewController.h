@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface ResultsViewController : UITableViewController  <PFLogInViewControllerDelegate>
+@interface ResultsViewController : UITableViewController  <PFLogInViewControllerDelegate, CLLocationManagerDelegate>
 
+@property (nonatomic) CLLocationManager *locationManager;
 
 @end
 
