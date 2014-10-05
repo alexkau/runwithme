@@ -98,6 +98,7 @@
 	PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLatitude:coordinate.latitude
 												  longitude:coordinate.longitude];
 	[[PFUser currentUser] setObject:geoPoint forKey:@"location"];
+	[[PFUser currentUser] saveEventually];
 	[[self locationManager] stopUpdatingLocation];
 }
 
