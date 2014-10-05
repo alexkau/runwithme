@@ -92,5 +92,5 @@ Parse.Cloud.define("usersNearMe", function(request, response) {
   });
 });
 
-Parse.Cloud.define("addStarredUser", function(request, response) {
+//Parse.Cloud.define("addStarredUser", function(request, response) {
   
