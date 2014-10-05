@@ -215,9 +215,9 @@
                                    NSError *error = nil;
                                    NSJSONSerialization *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
                                    float averageDistance = [[[json valueForKey:@"goals"] valueForKey:@"distance"] floatValue];
-                                   float averagePace = averageDistance/60.0;
+                                   float averagePace = averageDistance;
                                    
-                                   NSNumber *avgDistance = [NSNumber numberWithFloat:averageDistance];
+                                   NSNumber *avgDistance = [NSNumber numberWithFloat:averageDistance/66.7];
                                    NSNumber *avgPace = [NSNumber numberWithFloat:averagePace];
                                    
                                    NSLog(@"%f", averagePace);
