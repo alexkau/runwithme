@@ -10,6 +10,7 @@
 
 @interface ProfileViewController : UIViewController
 
+@property (nonatomic, copy) NSString *myUsername;
 @property (nonatomic, copy) NSString *fbusername;
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *distance;

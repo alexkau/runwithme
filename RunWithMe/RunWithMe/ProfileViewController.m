@@ -7,6 +7,7 @@
 //
 
 #import "ProfileViewController.h"
+#import "ChatViewController.h"
 
 @interface ProfileViewController ()
 
@@ -27,6 +28,5 @@
 	self.nameLabel.text = self.name;
 	self.detailLabel.text = [NSString stringWithFormat:@"Distance from you: %@\nAverage pace: %@\nAverage length of run: %@", self.distance, self.avgPace, self.avgDistance];
 }
-
 
 @end

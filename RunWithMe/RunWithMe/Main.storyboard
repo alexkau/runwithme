@@ -165,17 +165,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Runner Profile" id="cra-N8-TIN">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="J2n-L0-EGX">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gVl-CH-Z8R">
-                                <rect key="frame" x="-23" y="-15" width="71" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Chat">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" title="Chat" id="Avz-hW-Qu5">
                             <connections>
-                                <segue destination="q9s-UH-81O" kind="push" id="sZy-yo-oFy"/>
+                                <segue destination="q9s-UH-81O" kind="push" id="FZN-DU-WuR"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -226,7 +218,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Igy-h3-dis" customClass="UITouchTableView">
-                                <rect key="frame" x="20" y="71" width="280" height="419"/>
+                                <rect key="frame" x="20" y="72" width="280" height="419"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="q9s-UH-81O" id="tqa-Dy-8DE"/>

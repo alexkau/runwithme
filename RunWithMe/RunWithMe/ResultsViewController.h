@@ -17,6 +17,7 @@
 @property (nonatomic) BOOL fitbitAuthenticated;
 @property (nonatomic, strong) NSString *oauthToken;
 @property (nonatomic, strong) NSString *oauthTokenSecret;
+@property (nonatomic, strong) NSString *myUsername;
 @property (nonatomic) float averagePace;
 @property (nonatomic) float averageDistance;
 

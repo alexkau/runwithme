@@ -43,6 +43,7 @@
 		 ^(FBRequestConnection *connection, id result, NSError *error) {
 			if (!error) {
 				NSString *facebookUsername = [result objectForKey:@"id"];
+				self.myUsername = facebookUsername;
 				NSString *realName = [result objectForKey:@"name"];
 				[[PFUser currentUser] setObject:facebookUsername forKey:@"fbusername"];
 				[[PFUser currentUser] setObject:realName forKey:@"realName"];
@@ -129,6 +130,7 @@
 	if ([[segue identifier] isEqualToString:@"showProfile"]) {
 		ProfileViewController *profileViewController = [segue destinationViewController];
 		ResultsCell *cell = (ResultsCell *)[self.tableView cellForRowAtIndexPath:[self.tableView indexPathForSelectedRow]];
+		profileViewController.myUsername = self.myUsername;
 		profileViewController.name = cell.nameLabel.text;
 		profileViewController.distance = cell.distanceLabel.text;
 		profileViewController.fbusername = cell.fbusername;
@@ -136,7 +138,6 @@
 		profileViewController.avgDistance = cell.avgDistance;
 		UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
 		[[self navigationItem] setBackBarButtonItem:newBackButton];
-		NSLog(@"%@, %@, %@, %@", profileViewController.name, profileViewController.distance, profileViewController.avgPace, profileViewController.avgDistance);
 	}
 }
 

@@ -10,7 +10,7 @@
 
 #import "ChatViewController.h"
 
-#define kFirechatNS @"https://luminous-heat-7950.firebaseio.com/"
+#define kFirechatNS @"https://run-with-me.firebaseio.com/"
 
 @interface ChatViewController ()
 @property (nonatomic) BOOL newMessagesOnTop;
@@ -119,7 +119,7 @@
 	CGSize constraint = CGSizeMake(TEXT_LABEL_WIDTH, 20000);
 	
 	// typical textLabel.font = font-family: "Helvetica"; font-weight: bold; font-style: normal; font-size: 18px
-	CGSize size = [text sizeWithFont:[UIFont systemFontOfSize:18] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping]; // requires iOS 6+
+	CGSize size = [text sizeWithFont:[UIFont systemFontOfSize:18] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
 	const CGFloat CELL_CONTENT_MARGIN = 22;
 	CGFloat height = MAX(CELL_CONTENT_MARGIN + size.height, 44);
 	
