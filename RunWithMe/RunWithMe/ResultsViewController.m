@@ -8,6 +8,7 @@
 
 #import "ResultsViewController.h"
 #import "MyLoginViewController.h"
+#import "ResultsCell.h"
 #import <Parse/Parse.h>
 #import <CoreLocation/CoreLocation.h>
 
@@ -21,12 +22,15 @@
 
 - (void)viewDidLoad {
 	CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
-	if (status == kCLAuthorizationStatusAuthorized || status == kCLAuthorizationStatusAuthorizedWhenInUse) {
+	if (status == kCLAuthorizationStatusAuthorizedWhenInUse) {
 		[self getLocation];
 	}
 	else if (status == kCLAuthorizationStatusNotDetermined) {
 		[[self locationManager] requestWhenInUseAuthorization];
 	}
+	self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:48/255.0f green:130/255.0f blue:163/255.0f alpha:1];
+	self.navigationController.navigationBar.translucent = NO;
+	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -44,10 +48,11 @@
 		
 		[PFCloud callFunctionInBackground:@"usersNearMe"
 						   withParameters:@{@"username" : [[PFUser currentUser] username]}
-									block:^(id object, NSError *error) {
+									block:^(id result, NSError *error) {
 										if (!error) {
-											NSArray *myJsonString = object;
-											NSLog(@"My json array %@", myJsonString);
+											_objects = result;
+											NSLog(@"Objects array %@", _objects);
+											[self.tableView reloadData];
 										}
 									}];
 		
@@ -84,7 +89,7 @@
 }
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
-	if (status == kCLAuthorizationStatusAuthorized) {
+	if (status == kCLAuthorizationStatusAuthorizedWhenInUse) {
 		[[self locationManager] startUpdatingLocation];
 	}
 }
@@ -113,45 +118,70 @@
 
 
 #pragma mark - Segues
-//
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//	if ([[segue identifier] isEqualToString:@"showDetail"]) {
-//	    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-//	    NSDate *object = self.objects[indexPath.row];
-////	    [[segue destinationViewController] setProfileItem:object];
-//	}
-//}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+	if ([[segue identifier] isEqualToString:@"showDetail"]) {
+	    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+	}
+}
 
 #pragma mark - Table View
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-	return 0;
+	if (_objects == nil) {
+		return 0;
+	}
+	else {
+		return 1;
+	}
 }
-//
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//	return self.objects.count;
-//}
-//
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-//
-//	NSDate *object = self.objects[indexPath.row];
-//	cell.textLabel.text = [object description];
-//	return cell;
-//}
-//
-//- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-//	// Return NO if you do not want the specified item to be editable.
-//	return YES;
-//}
-//
-//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-//	if (editingStyle == UITableViewCellEditingStyleDelete) {
-//	    [self.objects removeObjectAtIndex:indexPath.row];
-//	    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-//	} else if (editingStyle == UITableViewCellEditingStyleInsert) {
-//	    // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-//	}
-//}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+	if (_objects == nil)
+		return 0;
+	else {
+		return self.objects.count + 1;
+	}
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+	ResultsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+	if (!cell) {
+		cell = [[ResultsCell alloc] init];
+	}
+	if (indexPath.row == [_objects count]) {
+		NSLog(@"Cat cell");
+		cell.nameLabel.text = @"Cat";
+		return cell;
+	}
+	NSDictionary *dict = _objects[indexPath.row];
+
+	cell.nameLabel.text = dict[@"fbusername"];
+	cell.distanceLabel.text = [NSString stringWithFormat:@"%.1f mi.", [dict[@"distance"] floatValue]];
+
+	NSString *strurl = [[NSString alloc] initWithFormat:@"https://graph.facebook.com/%@/picture", [_objects[indexPath.row] objectForKey:@"fbusername"]];
+	NSURL *url=[NSURL URLWithString:strurl];
+	NSData *imageData = [NSData dataWithContentsOfURL:url];
+	UIImage *profilePic = [UIImage imageWithData:imageData];
+	cell.image.image = profilePic;
+	cell.image.layer.cornerRadius = cell.image.frame.size.width / 2;
+	cell.image.clipsToBounds = YES;
+	
+	return cell;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+	// Return NO if you do not want the specified item to be editable.
+	return NO;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+	if (editingStyle == UITableViewCellEditingStyleDelete) {
+	    [self.objects removeObjectAtIndex:indexPath.row];
+	    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+	} else if (editingStyle == UITableViewCellEditingStyleInsert) {
+	    // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+	}
+}
 
 @end

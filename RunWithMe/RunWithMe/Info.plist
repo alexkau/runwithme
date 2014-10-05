@@ -61,5 +61,7 @@
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Grant location permissions</string>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>
