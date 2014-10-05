@@ -13,5 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *image;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
+@property (nonatomic) NSString *avgPace;
+@property (nonatomic) NSString *avgDistance;
 
 @end

@@ -16,31 +16,14 @@
 
 #pragma mark - Managing the Profile item
 
-- (void)setProfileItem:(id)newProfileItem {
-	if (_ProfileItem != newProfileItem) {
-	    _ProfileItem = newProfileItem;
-	        
-	    // Update the view.
-	    [self configureView];
-	}
-}
-
-- (void)configureView {
-	// Update the user interface for the Profile item.
-	if (self.ProfileItem) {
-	    self.ProfileDescriptionLabel.text = [self.ProfileItem description];
-	}
-}
-
 - (void)viewDidLoad {
 	[super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-	[self configureView];
+	self.profilePicView.image = [UIImage imageWithData:self.profilePicData];
+	self.profilePicView.layer.cornerRadius = self.profilePicView.frame.size.width / 2;
+	self.profilePicView.clipsToBounds = YES;
+	self.nameLabel.text = self.name;
+	self.detailLabel.text = [NSString stringWithFormat:@"Distance from you: %@\nAverage pace: %@\nAverage length of run: %@", self.distance, self.avgPace, self.avgDistance];
 }
 
-- (void)didReceiveMemoryWarning {
-	[super didReceiveMemoryWarning];
-	// Dispose of any resources that can be recreated.
-}
 
 @end
