@@ -15,7 +15,7 @@
 
 function getAveragePace(user) {
   var runs = user.get("runs");
-  if (runs.length == 0) {
+  if (!runs) {
     return -1;
   }
 
@@ -91,3 +91,6 @@ Parse.Cloud.define("usersNearMe", function(request, response) {
     }
   });
 });
+
+Parse.Cloud.define("addStarredUser", function(request, response) {
+  
